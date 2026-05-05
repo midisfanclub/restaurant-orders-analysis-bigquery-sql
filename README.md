@@ -206,6 +206,8 @@ ORDER BY num_purchases DESC
 | 7 | Steak Torta | Mexican | $13.95 | 489 |
 | 8 | Spaghetti & Meatballs | Italian | $17.95 | 470 |
 
+![Resultado — Itens mais pedidos](images/most_ordered_items_result.png)
+
 > 💡 **Insight:** O **Hamburger** lidera com 622 pedidos, seguido pelo **Edamame** com 620 — uma diferença de apenas 2 registros em um trimestre. O contraste de preços é relevante: Hamburger a $12.95, Edamame a $5.00. O alto volume do Edamame com ticket unitário baixo sugere que ele funciona como item de acompanhamento recorrente, impactando volume sem impactar ticket médio. O Korean Beef Bowl ($17.95, 3º lugar), por sua vez, combina alto volume com maior valor unitário — perfil distinto do Edamame para fins de estratégia comercial.
 
 ---
@@ -262,6 +264,8 @@ INNER JOIN menu_items AS mi ON SAFE_CAST(od.item_id AS INT64) = mi.menu_item_id
 WHERE order_id = 440
 ```
 
+![Resultado — Detalhamento dos top 5 pedidos](images/top5_orders_detail_result.png)
+
 > 💡 **Insight:** O pedido 440 ($192.15) foi realizado em **08/01/2023** com 14 itens. Desses, 8 eram da culinária **Italiana** — a categoria de maior preço médio ($16.75) — incluindo Spaghetti & Meatballs, Fettuccine Alfredo (2x), Meat Lasagna e Chicken Parmesan. O pedido também incluiu itens Asian, Mexican e American, indicando uma mesa com preferências diversas.
 
 ---
@@ -275,6 +279,8 @@ INNER JOIN menu_items AS mi ON SAFE_CAST(od.item_id AS INT64) = mi.menu_item_id
 WHERE order_id IN (440, 2075, 1957, 330, 2675)
 GROUP BY order_id, category
 ```
+
+![Resultado — Categorias nos top 5 pedidos](images/dishes_per_category_top5_result.png)
 
 > 💡 **Insight:** Entre os 5 maiores pedidos, a culinária Italiana está presente com maior concentração de itens nos pedidos de ticket mais alto — o que é coerente com seu maior preço médio por prato ($16.75). Com apenas 5 pedidos de amostra, no entanto, não é possível generalizar essa relação.
 
@@ -319,6 +325,8 @@ ORDER BY num_orders DESC
 | 2023-03-27 | 71 | $30.50 |
 | 2023-03-17 | 71 | $33.05 |
 | 2023-03-13 | 71 | $31.72 |
+
+![Resultado — Ticket médio por dia](images/avg_ticket_per_order_result.png)
 
 > 💡 **Insight:** O dia mais movimentado do trimestre foi **01/02/2023** com 87 pedidos e ticket médio de $27.54 — o menor entre os dias listados. Entre os 7 dias de maior volume, o ticket varia de $27.54 a $33.05, sem uma relação direta entre volume de pedidos e valor médio por pedido.
 
@@ -382,6 +390,8 @@ ORDER BY num_orders DESC
 | 2023-01-23 | Monday | 69 | $28.80 |
 | 2023-02-13 | Monday | 69 | $28.68 |
 | 2023-02-11 | Saturday | 68 | $29.56 |
+
+![Resultado — Dias da semana por volume de pedidos](images/day_of_week_by_num_orders_result.png)
 
 > 💡 **Insight:** **Segunda-feira** concentra 6 dos 10 dias mais movimentados do trimestre — o dia da semana com maior recorrência no topo do ranking de volume. O dia de maior movimento absoluto foi uma **quarta-feira** (01/02, 87 pedidos), com o menor ticket médio entre os dias listados ($27.54).
 
